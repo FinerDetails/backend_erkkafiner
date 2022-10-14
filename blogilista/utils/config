@@ -1,0 +1,10 @@
+require("dotenv").config()
+
+let password = process.env.MONGOPASS
+const mongoUrl = `mongodb+srv://finer_details:${password}@cluster0.lpfdylt.mongodb.net/blogilista?retryWrites=true&w=majority`
+let PORT = process.env.PORT
+
+module.exports = {
+    mongoUrl,
+    PORT
+}
