@@ -1,2 +1,4 @@
-.env
-requests
+puhelinluettelo_backend/.env
+puhelinluettelo_backend/node_modules
+blogilista/.env
+blogilista/node_modules
