@@ -62,69 +62,72 @@ const oneBlog = [
 ]
 const emptyBlog = []
 
-test("dummy returns one", () => {
-	const result = listHelper.dummy(emptyBlog)
-	expect(result).toBe(1)
-})
-describe("bloglist", () => {
+describe("functions", () => {
 
-	test("list with multiple blogs", () => {
-		const result = listHelper.totalLikes(manyBlogs)
-		expect(result).toBe(36)
+	test("dummy returns one", () => {
+		const result = listHelper.dummy(emptyBlog)
+		expect(result).toBe(1)
 	})
-	test("list with a single blog", () => {
-		const result = listHelper.totalLikes(oneBlog)
-		expect(result).toBe(7)
-	})
-	test("list with 0 blogs", () => {
-		const result = listHelper.totalLikes(emptyBlog)
-		expect(result).toBe(0)
-	})
-})
-describe("blog with max likes", () => {
-	test("max likes with multiple blogs", () => {
-		const result = listHelper.favouriteBlog(manyBlogs)
-		expect(result).toEqual({ title: "Canonical string reduction", author: "Edsger W. Dijkstra", likes: 12 })
-	})
-	test("max likes with a single blog", () => {
-		const result = listHelper.favouriteBlog(oneBlog)
-		expect(result).toEqual({ title: "React patterns", author: "Michael Chan", likes: 7 })
-	})
-	test("max likes with 0 blogs", () => {
-		const result = listHelper.favouriteBlog(emptyBlog)
-		expect(result).toBe(0)
-	})
-})
-describe("most blogs", () => {
-	test("most blogs with multiple blogs", () => {
-		const result = listHelper.mostBlogs(manyBlogs)
-		expect(result).toEqual({ author: "Robert C. Martin", blogs: 3 })
-	})
-	test("most blogs with a single blog", () => {
-		const result = listHelper.mostBlogs(oneBlog)
-		expect(result).toEqual({ author: "Michael Chan", blogs: 1 })
-	})
-	test("most blogs with 0 blogs", () => {
-		const result = listHelper.mostBlogs(emptyBlog)
-		expect(result).toBe(0)
-	})
-})
+	describe("bloglist", () => {
 
-describe("author with most combined likes", () => {
-	test("most likes with multiple blogs", () => {
-		const result = listHelper.mostLikes(manyBlogs)
-		expect(result).toEqual({
-			author: "Edsger W. Dijkstra", likes: 17
+		test("list with multiple blogs", () => {
+			const result = listHelper.totalLikes(manyBlogs)
+			expect(result).toBe(36)
+		})
+		test("list with a single blog", () => {
+			const result = listHelper.totalLikes(oneBlog)
+			expect(result).toBe(7)
+		})
+		test("list with 0 blogs", () => {
+			const result = listHelper.totalLikes(emptyBlog)
+			expect(result).toBe(0)
 		})
 	})
-	test("most likes with a single blog", () => {
-		const result = listHelper.mostLikes(oneBlog)
-		expect(result).toEqual({
-			author: "Michael Chan", likes: 7
+	describe("blog with max likes", () => {
+		test("max likes with multiple blogs", () => {
+			const result = listHelper.favouriteBlog(manyBlogs)
+			expect(result).toEqual({ title: "Canonical string reduction", author: "Edsger W. Dijkstra", likes: 12 })
+		})
+		test("max likes with a single blog", () => {
+			const result = listHelper.favouriteBlog(oneBlog)
+			expect(result).toEqual({ title: "React patterns", author: "Michael Chan", likes: 7 })
+		})
+		test("max likes with 0 blogs", () => {
+			const result = listHelper.favouriteBlog(emptyBlog)
+			expect(result).toBe(0)
 		})
 	})
-	test("most likes with 0 blogs", () => {
-		const result = listHelper.mostLikes(emptyBlog)
-		expect(result).toBe(0)
+	describe("most blogs", () => {
+		test("most blogs with multiple blogs", () => {
+			const result = listHelper.mostBlogs(manyBlogs)
+			expect(result).toEqual({ author: "Robert C. Martin", blogs: 3 })
+		})
+		test("most blogs with a single blog", () => {
+			const result = listHelper.mostBlogs(oneBlog)
+			expect(result).toEqual({ author: "Michael Chan", blogs: 1 })
+		})
+		test("most blogs with 0 blogs", () => {
+			const result = listHelper.mostBlogs(emptyBlog)
+			expect(result).toBe(0)
+		})
+	})
+
+	describe("author with most combined likes", () => {
+		test("most likes with multiple blogs", () => {
+			const result = listHelper.mostLikes(manyBlogs)
+			expect(result).toEqual({
+				author: "Edsger W. Dijkstra", likes: 17
+			})
+		})
+		test("most likes with a single blog", () => {
+			const result = listHelper.mostLikes(oneBlog)
+			expect(result).toEqual({
+				author: "Michael Chan", likes: 7
+			})
+		})
+		test("most likes with 0 blogs", () => {
+			const result = listHelper.mostLikes(emptyBlog)
+			expect(result).toBe(0)
+		})
 	})
 })

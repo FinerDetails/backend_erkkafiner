@@ -1,7 +1,3 @@
-const blog = require("../models/blog")
-
-const blogs = require()
-
 const dummy = blogs => {
 	return 1
 }
@@ -48,13 +44,6 @@ const mostBlogs = blogs => {
 	}
 	else {
 		const authorList = listAuthors(blogs)
-		/*const authorList = []
-		const allAuthors = blogs.map(blog => blog.author)
-		allAuthors.forEach(author => {
-			if (!authorList.find(singleAuthor => singleAuthor === author)) {
-				authorList.push(author)
-			}
-		})*/
 		const blogList = []
 		authorList.forEach(author => {
 			const blogAmount = blogs.map(blog => blog.author).filter(i => i === author).length

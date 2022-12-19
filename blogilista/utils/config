@@ -1,7 +1,14 @@
 require("dotenv").config()
 
+let mongoUrl
 let password = process.env.MONGOPASS
-const mongoUrl = `mongodb+srv://finer_details:${password}@cluster0.lpfdylt.mongodb.net/blogilista?retryWrites=true&w=majority`
+if (process.env.NODE_ENV === 'test' ) {
+    mongoUrl = `mongodb+srv://finer_details:${password}@cluster0.lpfdylt.mongodb.net/testBlogilista?retryWrites=true&w=majority`
+}
+else {
+    mongoUrl = `mongodb+srv://finer_details:${password}@cluster0.lpfdylt.mongodb.net/blogilista?retryWrites=true&w=majority`
+
+}
 let PORT = process.env.PORT
 
 module.exports = {
