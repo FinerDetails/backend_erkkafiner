@@ -2,7 +2,7 @@ require("dotenv").config()
 
 let mongoUrl
 let password = process.env.MONGOPASS
-if (process.env.NODE_ENV === 'test' ) {
+if (process.env.NODE_ENV === "test" ) {
     mongoUrl = `mongodb+srv://finer_details:${password}@cluster0.lpfdylt.mongodb.net/testBlogilista?retryWrites=true&w=majority`
 }
 else {

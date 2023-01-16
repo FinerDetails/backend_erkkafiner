@@ -13,7 +13,7 @@ blogsRouter.get("/", async (req, res) => {
 
 
 blogsRouter.post("/", tokenExtractor, userExtractor, async (req, res) => {
-  	const user = req.user
+	const user = req.user
 	const blog = new Blog({
 		title: req.body.title,
 		author: req.body.author,
@@ -21,6 +21,7 @@ blogsRouter.post("/", tokenExtractor, userExtractor, async (req, res) => {
 		likes: req.body.likes,
 		user: user._id
 	})
+	console.log(blog)
 	const savedBlog = await blog.save()
 	user.blogs = user.blogs.concat(savedBlog._id)
 	await user.save()
